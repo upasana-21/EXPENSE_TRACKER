@@ -19,7 +19,7 @@
 
 body {
   background-color: var(--background-color);
-  color: var(--secondary-color);
+  color: black;
   font-family: "Noto Sans", sans-serif;
   display: flex;
   flex-direction: column;
@@ -47,12 +47,19 @@ body {
 }
 
 .container {
-  margin: 30px auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 25px;
   width: 350px;
+  box-shadow: 0 20px 40px rgba(124,58,237,0.25);
+  border: 2px solid #7c3aed;
+  position: relative;
 }
+
 
 h1 {
   font-size: 1.25rem;
+  color: #7a3cff;
 }
 
 h2 {
@@ -78,23 +85,22 @@ h4 {
 }
 
 .inc-exp-container {
-  background-color: var(--background-secondary-color);
-  box-shadow: var(--box-shadow);
+  background: white;
+  box-shadow: 0 0 15px rgba(122,60,255,.2);
   padding: 20px;
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
-  border-radius: 5px;
+  border-radius: 10px;
+  border: 1px solid #7a3cff;
+  transition: .3s;
 }
 
-.inc-exp-container > div {
-  flex: 1;
-  text-align: center;
+.inc-exp-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(122,60,255,.35);
 }
 
-.inc-exp-container > div:first-of-type {
-  border-right: 1px solid var(--border-secondary-color);
-}
 
 .money {
   font-size: 20px;
@@ -117,46 +123,92 @@ label {
 
 input[type="text"],
 input[type="number"] {
-  border: 1px solid var(--border-secondary-color);
-  border-radius: 5px;
-  display: block;
+  border: 1px solid #7a3cff;
+  border-radius: 8px;
   font-size: 16px;
   padding: 10px;
   width: 100%;
+  transition: .3s;
 }
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(122,60,255,.4);
+}
+/* INPUT HOVER + FOCUS EFFECTS */
+
+input[type="text"],
+input[type="number"] {
+  transition: all 0.3s ease;
+}
+
+/* hover */
+
+input[type="text"]:hover,
+input[type="number"]:hover {
+  border-color: #7c3aed;
+  box-shadow: 0 0 8px rgba(124,58,237,0.3);
+}
+
+/* focus (when typing) */
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 12px rgba(124,58,237,0.5);
+  transform: scale(1.01);
+}
+
 
 .btn {
   cursor: pointer;
-  background-color: var(--main-color);
-  box-shadow: var(--box-shadow);
-  color: var(--background-secondary-color);
-  border: 0;
-  display: block;
+  background: linear-gradient(135deg,#7a3cff,#4f46ff);
+  box-shadow: 0 6px 15px rgba(122,60,255,.4);
+  color: white;
+  border: none;
   font-size: 16px;
-  margin: 10px 0 30px;
-  padding: 10px;
+  margin: 15px 0 30px;
+  padding: 12px;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
+  transition: .3s;
 }
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(122,60,255,.6);
+}
+
 
 .list {
   list-style-type: none;
+  color: black;
   padding: 0;
   margin-bottom: 40px;
 }
 
 .list li {
-  background-color: var(--background-secondary-color);
-  box-shadow: var(--box-shadow);
-  color: var(--ternary-color);
-  display: flex;
-  justify-content: space-between;
+  background: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,.15);
+  color: #2b2b2b;
+  padding: 12px 45px 12px 12px;
+  margin: 12px 0;
+  border-radius: 10px;
+  border: 1px solid #7a3cff;
+  transition: .3s;
   position: relative;
-  padding: 10px;
-  margin: 10px 0;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
 }
+.list li span {
+  margin-left: 15px;     /* small spacing */
+  color: #1a1a1a;        /* darker amount */
+}
+
+.list li:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(122,60,255,.35);
+}
+
 
 .list li.plus {
   border-left: 5px solid var(--plus-color);
@@ -167,22 +219,23 @@ input[type="number"] {
 }
 
 .delete-btn {
-  cursor: pointer;
-  background-color: var(--minus-color);
-  color: var(--background-secondary-color);
-  box-shadow: var(--box-shadow);
-  border: 0;
-  font-size: 22px;
-  line-height: 22px;
-  padding: 10px;
-  margin: 10px 0;
   position: absolute;
+  right: 8px;
   top: 50%;
-  right: 0;
-  transform: translate(100%, -73%);
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background: #e74c3c;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: .3s;
 }
+
 
 .btn:focus,
 .delete-btn:focus {
